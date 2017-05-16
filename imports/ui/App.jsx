@@ -49,13 +49,18 @@ export class App extends Component {
           <span></span>
         }
         <h2>Map of Colombia</h2>
+        <div id="container">
         <Overlay getProjection={this.getProjection.bind(this)} tweets={this.props.tweets}></Overlay>
         <ColombiaMap
           width="600"
           height="600"
           setProjection={this.setProjection.bind(this)}
-          data={{RISARALDA:10, CALDAS:12}}
+          data={{RISARALDA:0, CALDAS:0}}
         ></ColombiaMap>
+        <p>Blue: Less than 1000 followers</p>
+        <p>Purple: From 1000 to 10000 followers</p>
+        <p>Yellow: More than 10000 followers</p>
+      </div>
         <h2>Results:</h2>
         {this.props && this.props.tweets ?
           <TweetsResults tweets={this.props.tweets}/> :
